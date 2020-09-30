@@ -4,5 +4,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\WhatsappApi\Library.csproj" />
+    <ProjectReference Include="..\TwitterApi\Library.csproj" />
   </ItemGroup>
 </Project>
