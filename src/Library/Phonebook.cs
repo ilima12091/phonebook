@@ -31,5 +31,33 @@ namespace Library
 
             return result;
         }
+
+        public Contact AddContact(string name)
+        {
+            Contact contact = new Contact(name);
+            if(!this.persons.Contains(contact))
+            {
+                this.persons.Add(contact);
+            }
+            return contact;
+        }
+
+        public void RemoveContact(string[] name)
+        {
+            List<Contact> peopleToRemove = Search(name);
+            foreach(Contact c in peopleToRemove)
+            {
+                this.persons.Remove(c);
+            }
+        }
+
+        public void SendMessage(string[] name, string message, IMessageChannel channel)
+        {
+            List<Contact> peopleToSend = Search(name);
+            foreach(Contact c in peopleToSend)
+            {
+                channel.PerformMessage(message, this.Owner.Name, c);
+            }
+        }
     }
 }
